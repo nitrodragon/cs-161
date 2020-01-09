@@ -6,14 +6,15 @@
  *
  * This class was written as an early example for teaching Java with BlueJ.
  * 
- * @author  Michael Kölling and David J. Barnes
- * @version 2016.02.29
+ * @author  Michael Kölling, David J. Barnes, and Reagan Russell
+ * @version 2020.01.08
  */
 public class Picture {
     private Square wall;
     private Square window;
     private Triangle roof;
     private Circle sun;
+    private Person fred;
     private boolean drawn;
 
     /**
@@ -24,6 +25,7 @@ public class Picture {
         window = new Square();
         roof = new Triangle();  
         sun = new Circle();
+        fred = new Person();
         drawn = false;
     }
 
@@ -53,11 +55,16 @@ public class Picture {
             sun.moveVertical(-40);
             sun.changeSize(80);
             sun.makeVisible();
+            
+            fred.changeColor("black");
+            fred.changeSize(60, 30);
+            fred.moveHorizontal(210);
+            fred.moveVertical(25);
             drawn = true;
         }
     }
 
-     // Change this picture to black/white display
+    // Changes picture to a black-and-white display.
     public void setBlackAndWhite() {
         wall.changeColor("black");
         window.changeColor("white");
@@ -65,11 +72,14 @@ public class Picture {
         sun.changeColor("black");
     }
 
+    // A beautiful sunset, complete with a person walking to the house.
     public void sunset() {
         sun.slowMoveVertical(300);
+        fred.makeVisible();
+        fred.slowMoveHorizontal(-180);
     }
     
-    // Change this picture to use color display
+    // Changes the picture to a color display.
     public void setColor() {
         wall.changeColor("red");
         window.changeColor("black");
